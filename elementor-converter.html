@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nidex — Conversor para Elementor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0F172A; color: #fff; min-height: 100vh; }
+
+    .header {
+      padding: 24px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header__logo { font-size: 1.5rem; font-weight: 800; color: #2563EB; }
+    .header__sep { width: 1px; height: 24px; background: rgba(255,255,255,0.1); }
+    .header__title { font-size: 0.9375rem; font-weight: 500; color: rgba(255,255,255,0.5); }
+
+    .main { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 36px;
+      margin-bottom: 24px;
+    }
+
+    .card__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card__title .num {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: #2563EB;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card__desc { font-size: 0.9rem; color: rgba(255,255,255,0.45); margin-bottom: 24px; line-height: 1.6; }
+
+    .input-row { display: flex; gap: 12px; }
+    .url-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 13px 18px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .url-input::placeholder { color: rgba(255,255,255,0.25); }
+    .url-input:focus { border-color: #2563EB; }
+
+    .btn-convert {
+      background: #2563EB;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 28px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-convert:hover { background: #1D4ED8; }
+    .btn-convert:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-download {
+      background: #16A34A;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 28px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-download:hover { background: #15803D; }
+
+    /* Progress */
+    .progress { display: none; margin-top: 20px; }
+    .progress.visible { display: block; }
+    .progress__bar-bg {
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      height: 6px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .progress__bar {
+      height: 100%;
+      background: linear-gradient(90deg, #2563EB, #38BDF8);
+      border-radius: 999px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .progress__steps { display: flex; flex-direction: column; gap: 6px; }
+    .progress__step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .progress__step.done { color: #4ADE80; }
+    .progress__step.active { color: #38BDF8; }
+    .progress__step .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+    .progress__step.active .dot { animation: pulse 1s infinite; }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+
+    /* Result */
+    .result { display: none; }
+    .result.visible { display: block; }
+
+    .result__stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-box__value { font-size: 1.5rem; font-weight: 800; color: #38BDF8; }
+    .stat-box__label { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+    .result__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+
+    .json-preview {
+      background: #020817;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8125rem;
+      color: #64748B;
+      max-height: 240px;
+      overflow-y: auto;
+      white-space: pre;
+      line-height: 1.6;
+    }
+    .json-preview .key { color: #38BDF8; }
+    .json-preview .str { color: #4ADE80; }
+    .json-preview .num { color: #FB923C; }
+
+    /* Warning box */
+    .warning {
+      background: rgba(234,179,8,0.08);
+      border: 1px solid rgba(234,179,8,0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 0.875rem;
+      color: rgba(234,179,8,0.9);
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+    .warning strong { color: #FCD34D; }
+
+    /* Steps guide */
+    .steps-guide { display: flex; flex-direction: column; gap: 16px; }
+    .step-guide {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-guide__num {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(37,99,235,0.2);
+      border: 1px solid rgba(37,99,235,0.3);
+      color: #60A5FA;
+      font-size: 0.875rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-guide__content {}
+    .step-guide__title { font-size: 0.9375rem; font-weight: 600; margin-bottom: 3px; }
+    .step-guide__desc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+    .step-guide__code {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-family: monospace;
+      font-size: 0.8125rem;
+      color: #38BDF8;
+      margin-top: 4px;
+    }
+
+    /* Limitations */
+    .limitations { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .limit-item {
+      display: flex;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+    .limit-icon { flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
+
+    /* Error */
+    .error-box {
+      display: none;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 0.875rem;
+      color: rgba(239,68,68,0.9);
+      margin-top: 16px;
+    }
+    .error-box.visible { display: block; }
+
+    @media (max-width: 600px) {
+      .input-row { flex-direction: column; }
+      .result__stats { grid-template-columns: repeat(2, 1fr); }
+      .limitations { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header__logo">nidex</div>
+    <div class="header__sep"></div>
+    <div class="header__title">Conversor HTML → Elementor</div>
+  </div>
+
+  <div class="main">
+
+    <!-- STEP 1: URL INPUT -->
+    <div class="card">
+      <div class="card__title">
+        <span class="num">1</span>
+        Cole a URL do seu site
+      </div>
+      <div class="card__desc">
+        O site precisa estar hospedado e acessível online. A ferramenta busca o HTML, analisa a estrutura e gera o arquivo JSON do Elementor.
+      </div>
+      <div class="input-row">
+        <input
+          type="url"
+          class="url-input"
+          id="urlInput"
+          placeholder="https://seusite.com/index.html"
+          value=""
+        />
+        <button class="btn-convert" id="convertBtn" onclick="startConversion()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          Converter
+        </button>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress" id="progress">
+        <div class="progress__bar-bg"><div class="progress__bar" id="progressBar"></div></div>
+        <div class="progress__steps" id="progressSteps">
+          <div class="progress__step" id="step1"><div class="dot"></div> Buscando HTML via proxy CORS...</div>
+          <div class="progress__step" id="step2"><div class="dot"></div> Analisando estrutura de seções...</div>
+          <div class="progress__step" id="step3"><div class="dot"></div> Extraindo títulos, textos e botões...</div>
+          <div class="progress__step" id="step4"><div class="dot"></div> Mapeando cores e estilos de fundo...</div>
+          <div class="progress__step" id="step5"><div class="dot"></div> Gerando JSON do Elementor...</div>
+        </div>
+      </div>
+
+      <div class="error-box" id="errorBox"></div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result card" id="resultCard">
+      <div class="card__title">
+        <span class="num" style="background:#16A34A">✓</span>
+        Conversão concluída
+      </div>
+      <div class="card__desc" id="resultDesc">Arquivo JSON gerado com sucesso.</div>
+
+      <div class="result__stats" id="resultStats"></div>
+
+      <div class="result__actions">
+        <button class="btn-download" id="downloadBtn" onclick="downloadJSON()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Baixar .json para Elementor
+        </button>
+        <button class="btn-convert" onclick="copyJSON()" id="copyBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar JSON
+        </button>
+      </div>
+
+      <div class="json-preview" id="jsonPreview"></div>
+
+      <div class="warning">
+        <strong>⚠️ O que foi convertido:</strong> estrutura de seções, títulos, textos, botões e cores de fundo.
+        <strong>O que precisará de ajuste no Elementor:</strong> tipografia detalhada, espaçamentos, animações, o CSS personalizado do <code>style.css</code> (cole em Elementor → Configurações → CSS Personalizado).
+      </div>
+    </div>
+
+    <!-- STEP 2: HOW TO IMPORT -->
+    <div class="card">
+      <div class="card__title">
+        <span class="num">2</span>
+        Como importar no Elementor
+      </div>
+      <div class="card__desc">Siga o passo a passo após baixar o arquivo JSON.</div>
+      <div class="steps-guide">
+        <div class="step-guide">
+          <div class="step-guide__num">1</div>
+          <div class="step-guide__content">
+            <div class="step-guide__title">Crie uma nova página no WordPress</div>
+            <div class="step-guide__desc">Páginas → Adicionar nova → coloque um título → clique em "Editar com Elementor"</div>
+          </div>
+        </div>
+        <div class="step-guide">
+          <div class="step-guide__num">2</div>
+          <div class="step-guide__content">
+            <div class="step-guide__title">Abra o painel de Templates</div>
+            <div class="step-guide__desc">No editor Elementor, clique no ícone de pasta <strong>(⊞ Adicionar Template)</strong> no centro da tela ou no ícone de pasta no painel esquerdo.</div>
+          </div>
+        </div>
+        <div class="step-guide">
+          <div class="step-guide__num">3</div>
+          <div class="step-guide__content">
+            <div class="step-guide__title">Importe o arquivo JSON</div>
+            <div class="step-guide__desc">Aba <strong>"Meus Templates"</strong> → clique no ícone de upload (seta para cima) no canto superior direito → selecione o arquivo <code>.json</code> baixado.</div>
+            <div class="step-guide__code">elementor-template.json</div>
+          </div>
+        </div>
+        <div class="step-guide">
+          <div class="step-guide__num">4</div>
+          <div class="step-guide__content">
+            <div class="step-guide__title">Insira o template na página</div>
+            <div class="step-guide__desc">Após importar, o template aparece na lista. Clique em <strong>"Inserir"</strong> para adicionar à página.</div>
+          </div>
+        </div>
+        <div class="step-guide">
+          <div class="step-guide__num">5</div>
+          <div class="step-guide__content">
+            <div class="step-guide__title">Cole o CSS personalizado</div>
+            <div class="step-guide__desc">Elementor → Configurações do Site → CSS Personalizado → cole o conteúdo do arquivo <code>style.css</code> para restaurar os estilos visuais.</div>
+          </div>
+        </div>
+        <div class="step-guide">
+          <div class="step-guide__num">6</div>
+          <div class="step-guide__content">
+            <div class="step-guide__title">Adicione as imagens</div>
+            <div class="step-guide__desc">Vá em WordPress → Mídia → Adicionar novo. Após upload, copie a URL de cada imagem e substitua nos widgets de imagem do Elementor.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIMITATIONS -->
+    <div class="card">
+      <div class="card__title">
+        <span class="num" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5)">!</span>
+        O que a conversão consegue e não consegue fazer
+      </div>
+      <div class="card__desc">Entenda os limites para planejar o trabalho de ajuste no Elementor.</div>
+      <div class="limitations">
+        <div class="limit-item"><span class="limit-icon">✅</span> Seções e layout geral</div>
+        <div class="limit-item"><span class="limit-icon">✅</span> Títulos H1, H2, H3</div>
+        <div class="limit-item"><span class="limit-icon">✅</span> Parágrafos e textos</div>
+        <div class="limit-item"><span class="limit-icon">✅</span> Botões com texto e links</div>
+        <div class="limit-item"><span class="limit-icon">✅</span> Cores de fundo das seções</div>
+        <div class="limit-item"><span class="limit-icon">✅</span> Listas e itens</div>
+        <div class="limit-item"><span class="limit-icon">⚠️</span> CSS precisa ser colado manualmente</div>
+        <div class="limit-item"><span class="limit-icon">⚠️</span> Animações requerem ajuste</div>
+        <div class="limit-item"><span class="limit-icon">⚠️</span> Navbar complexa vira HTML widget</div>
+        <div class="limit-item"><span class="limit-icon">⚠️</span> Grid e flex layout simplificados</div>
+        <div class="limit-item"><span class="limit-icon">❌</span> JavaScript não é importado</div>
+        <div class="limit-item"><span class="limit-icon">❌</span> Imagens externas sem upload</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let generatedJSON = null;
+
+    // ─── Utilities ───────────────────────────────────────────
+    function genId() {
+      return Math.random().toString(36).substr(2, 7);
+    }
+
+    function setStep(index, state) {
+      const steps = document.querySelectorAll('.progress__step');
+      steps[index].className = 'progress__step ' + state;
+    }
+
+    function setProgress(pct) {
+      document.getElementById('progressBar').style.width = pct + '%';
+    }
+
+    function showError(msg) {
+      const box = document.getElementById('errorBox');
+      box.textContent = '❌ ' + msg;
+      box.classList.add('visible');
+      document.getElementById('progress').classList.remove('visible');
+      document.getElementById('convertBtn').disabled = false;
+    }
+
+    async function sleep(ms) {
+      return new Promise(r => setTimeout(r, ms));
+    }
+
+    // ─── Fetch HTML via CORS proxy ────────────────────────────
+    async function fetchHTML(url) {
+      // Try multiple proxies
+      const proxies = [
+        `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+        `https://corsproxy.io/?${encodeURIComponent(url)}`,
+      ];
+
+      for (const proxy of proxies) {
+        try {
+          const res = await fetch(proxy, { signal: AbortSignal.timeout(15000) });
+          if (!res.ok) continue;
+          const data = await res.json().catch(() => null);
+          if (data && data.contents) return data.contents;
+          // corsproxy returns text
+          const text = await res.text().catch(() => null);
+          if (text && text.includes('<')) return text;
+        } catch (e) {
+          continue;
+        }
+      }
+      throw new Error('Não foi possível acessar a URL. Verifique se o site está online e acessível publicamente.');
+    }
+
+    // ─── Elementor element builders ──────────────────────────
+    function makeSection(settings, columns) {
+      return {
+        id: genId(),
+        elType: 'section',
+        settings: settings,
+        elements: columns,
+        isInner: false
+      };
+    }
+
+    function makeColumn(width, elements) {
+      return {
+        id: genId(),
+        elType: 'column',
+        settings: { _column_size: width, _inline_size: null },
+        elements: elements
+      };
+    }
+
+    function makeHeading(text, tag, align, color) {
+      return {
+        id: genId(),
+        elType: 'widget',
+        widgetType: 'heading',
+        settings: {
+          title: text.trim(),
+          header_size: tag || 'h2',
+          align: align || 'left',
+          title_color: color || ''
+        }
+      };
+    }
+
+    function makeText(html) {
+      return {
+        id: genId(),
+        elType: 'widget',
+        widgetType: 'text-editor',
+        settings: { editor: html.trim() }
+      };
+    }
+
+    function makeButton(text, url, style) {
+      return {
+        id: genId(),
+        elType: 'widget',
+        widgetType: 'button',
+        settings: {
+          text: text.trim(),
+          link: { url: url || '#', is_external: false },
+          button_type: style === 'outline' ? '' : 'info',
+          background_color: style === 'outline' ? 'transparent' : '#2563EB',
+          border_color: style === 'outline' ? '#2563EB' : '',
+          border_width: { unit: 'px', top: style === 'outline' ? '2' : '0', right: style === 'outline' ? '2' : '0', bottom: style === 'outline' ? '2' : '0', left: style === 'outline' ? '2' : '0' },
+          border_radius: { unit: 'px', top: '10', right: '10', bottom: '10', left: '10' }
+        }
+      };
+    }
+
+    function makeHTML(html) {
+      return {
+        id: genId(),
+        elType: 'widget',
+        widgetType: 'html',
+        settings: { html: html }
+      };
+    }
+
+    function makeImage(src, alt) {
+      return {
+        id: genId(),
+        elType: 'widget',
+        widgetType: 'image',
+        settings: {
+          image: { url: src, alt: alt || '' },
+          image_size: 'full'
+        }
+      };
+    }
+
+    function makeDivider() {
+      return {
+        id: genId(),
+        elType: 'widget',
+        widgetType: 'divider',
+        settings: { color: { r: 226, g: 232, b: 240, a: 1 } }
+      };
+    }
+
+    // ─── Detect background color from element ────────────────
+    function detectBgColor(el) {
+      const cls = el.className || '';
+      const style = el.getAttribute('style') || '';
+
+      // From class names
+      if (cls.includes('bg-dark') || cls.includes('hero') || cls.includes('cta-section') || cls.includes('service-block--dark')) return '#0F172A';
+      if (cls.includes('section--light') || cls.includes('bg-light') || cls.includes('service-block--alt')) return '#F8FAFC';
+      if (cls.includes('section--white') || cls.includes('bg-white')) return '#FFFFFF';
+      if (cls.includes('service-block') && !cls.includes('alt') && !cls.includes('dark')) return '#FFFFFF';
+
+      // From inline style
+      const bgMatch = style.match(/background(?:-color)?:\s*(#[0-9a-fA-F]{3,8}|rgba?\([^)]+\))/);
+      if (bgMatch) return bgMatch[1];
+
+      return '';
+    }
+
+    function detectTextColor(el) {
+      const cls = el.className || '';
+      if (cls.includes('bg-dark') || cls.includes('hero') || cls.includes('cta-section') || cls.includes('service-block--dark')) return '#FFFFFF';
+      return '#0F172A';
+    }
+
+    // ─── Parse a DOM section into Elementor elements ─────────
+    function parseElements(container, isDark) {
+      const widgets = [];
+      const textColor = isDark ? '#FFFFFF' : '#0F172A';
+      const mutedColor = isDark ? 'rgba(255,255,255,0.55)' : '#64748B';
+
+      // Process child nodes
+      const children = Array.from(container.children);
+
+      for (const el of children) {
+        const tag = el.tagName.toLowerCase();
+        const cls = el.className || '';
+        const text = el.innerText || el.textContent || '';
+
+        // Skip empty
+        if (!text.trim() && !el.querySelector('img')) continue;
+
+        // Headings
+        if (['h1','h2','h3','h4'].includes(tag)) {
+          widgets.push(makeHeading(el.innerHTML, tag, 'left', textColor));
+          continue;
+        }
+
+        // Paragraphs
+        if (tag === 'p' && text.trim()) {
+          widgets.push(makeText(`<p>${el.innerHTML}</p>`));
+          continue;
+        }
+
+        // Buttons / links that look like buttons
+        if (tag === 'a' && (cls.includes('btn') || cls.includes('button'))) {
+          const href = el.getAttribute('href') || '#';
+          const isOutline = cls.includes('outline') || cls.includes('ghost') || cls.includes('secondary');
+          widgets.push(makeButton(text, href, isOutline ? 'outline' : 'primary'));
+          continue;
+        }
+
+        // Images
+        if (tag === 'img') {
+          const src = el.getAttribute('src') || '';
+          widgets.push(makeImage(src, el.getAttribute('alt') || ''));
+          continue;
+        }
+
+        // Lists
+        if (tag === 'ul' || tag === 'ol') {
+          widgets.push(makeText(`<${tag}>${el.innerHTML}</${tag}>`));
+          continue;
+        }
+
+        // Divs / sections with buttons group
+        if (tag === 'div' || tag === 'nav') {
+          const btns = Array.from(el.querySelectorAll('a.btn, a.button, button'));
+          const headings = Array.from(el.querySelectorAll('h1,h2,h3,h4'));
+          const paras = Array.from(el.querySelectorAll('p'));
+
+          // It's a CTA group with buttons
+          if (btns.length > 0 && headings.length === 0 && paras.length === 0) {
+            for (const btn of btns) {
+              const href = btn.getAttribute('href') || '#';
+              const bc = btn.className || '';
+              const isOutline = bc.includes('outline') || bc.includes('ghost');
+              widgets.push(makeButton(btn.innerText || btn.textContent, href, isOutline ? 'outline' : 'primary'));
+            }
+            continue;
+          }
+
+          // Has mixed content — recurse
+          if (headings.length > 0 || paras.length > 0) {
+            const sub = parseElements(el, isDark);
+            widgets.push(...sub);
+            continue;
+          }
+
+          // Stats / numbers row
+          if (cls.includes('stat') || cls.includes('kpi') || cls.includes('metric')) {
+            widgets.push(makeHTML(el.outerHTML));
+            continue;
+          }
+
+          // Generic div with text
+          if (text.trim().length > 0) {
+            widgets.push(makeText(`<div>${el.innerHTML}</div>`));
+          }
+        }
+      }
+
+      return widgets;
+    }
+
+    // ─── Convert full HTML to Elementor JSON ─────────────────
+    function convertToElementor(htmlString, sourceUrl) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlString, 'text/html');
+
+      const elements = [];
+      let sectionCount = 0;
+      let widgetCount = 0;
+      let buttonCount = 0;
+      let headingCount = 0;
+
+      // Find all top-level sections / main blocks
+      const sectionSelectors = [
+        'header.navbar',
+        'section',
+        'footer'
+      ];
+
+      const allSections = doc.querySelectorAll('header, section, footer');
+
+      allSections.forEach(sec => {
+        const cls = sec.className || '';
+        const tag = sec.tagName.toLowerCase();
+
+        // Skip mobile menu, progress bars etc
+        if (cls.includes('mobile-menu') || cls.includes('progress')) return;
+
+        const bgColor = detectBgColor(sec);
+        const isDark = bgColor === '#0F172A' || bgColor.includes('172a') || bgColor.includes('0f172');
+        const textColor = isDark ? '#FFFFFF' : '#0F172A';
+
+        // Section settings
+        const sectionSettings = {};
+        if (bgColor) {
+          sectionSettings.background_background = 'classic';
+          sectionSettings.background_color = bgColor;
+        }
+        sectionSettings.padding = {
+          unit: 'px',
+          top: tag === 'header' ? '20' : '80',
+          right: '0',
+          bottom: tag === 'header' ? '20' : '80',
+          left: '0',
+          isLinked: false
+        };
+        if (isDark) {
+          sectionSettings.color = '#FFFFFF';
+        }
+
+        let columnElements = [];
+
+        // Navbar → keep as HTML widget since it's complex
+        if (tag === 'header') {
+          const logo = sec.querySelector('.navbar__logo, .logo, [class*="logo"]');
+          const logoText = logo ? (logo.innerText || logo.textContent) : 'nidex';
+
+          columnElements.push(makeHeading(logoText, 'h3', 'left', '#2563EB'));
+          columnElements.push(makeHTML(`<!-- Navbar: adicione o widget Nav Menu do Elementor aqui e configure os links de menu -->`));
+        } else {
+          columnElements = parseElements(sec, isDark);
+        }
+
+        // Count widgets
+        const hCount = columnElements.filter(w => w.widgetType === 'heading').length;
+        const bCount = columnElements.filter(w => w.widgetType === 'button').length;
+        headingCount += hCount;
+        buttonCount += bCount;
+        widgetCount += columnElements.length;
+
+        if (columnElements.length === 0) return;
+
+        const col = makeColumn(100, columnElements);
+        const section = makeSection(sectionSettings, [col]);
+        elements.push(section);
+        sectionCount++;
+      });
+
+      // If no sections found, try body
+      if (elements.length === 0) {
+        const body = doc.body;
+        const widgets = parseElements(body, false);
+        if (widgets.length > 0) {
+          elements.push(makeSection({}, [makeColumn(100, widgets)]));
+          sectionCount = 1;
+          widgetCount = widgets.length;
+        }
+      }
+
+      const template = {
+        version: '0.4',
+        title: doc.title || 'Página importada — Nidex Converter',
+        type: 'page',
+        content: elements,
+        page_settings: {},
+        source_url: sourceUrl
+      };
+
+      return {
+        json: template,
+        stats: {
+          sections: sectionCount,
+          widgets: widgetCount,
+          headings: headingCount,
+          buttons: buttonCount
+        }
+      };
+    }
+
+    // ─── Main conversion flow ─────────────────────────────────
+    async function startConversion() {
+      const urlInput = document.getElementById('urlInput');
+      const url = urlInput.value.trim();
+
+      if (!url || !url.startsWith('http')) {
+        urlInput.focus();
+        urlInput.style.borderColor = '#EF4444';
+        setTimeout(() => urlInput.style.borderColor = '', 2000);
+        return;
+      }
+
+      // Reset UI
+      document.getElementById('errorBox').classList.remove('visible');
+      document.getElementById('resultCard').classList.remove('visible');
+      document.getElementById('progress').classList.add('visible');
+      document.getElementById('convertBtn').disabled = true;
+      setProgress(0);
+
+      const steps = ['step1','step2','step3','step4','step5'];
+      steps.forEach(s => setStep(steps.indexOf(s), ''));
+
+      try {
+        // Step 1: Fetch
+        setStep(0, 'active');
+        setProgress(15);
+        const html = await fetchHTML(url);
+        setStep(0, 'done');
+        await sleep(300);
+
+        // Step 2: Analyze
+        setStep(1, 'active');
+        setProgress(35);
+        await sleep(400);
+        setStep(1, 'done');
+
+        // Step 3: Extract
+        setStep(2, 'active');
+        setProgress(55);
+        await sleep(400);
+        setStep(2, 'done');
+
+        // Step 4: Styles
+        setStep(3, 'active');
+        setProgress(75);
+        await sleep(300);
+        setStep(3, 'done');
+
+        // Step 5: Generate JSON
+        setStep(4, 'active');
+        setProgress(90);
+        await sleep(200);
+
+        const result = convertToElementor(html, url);
+        generatedJSON = result.json;
+        setStep(4, 'done');
+        setProgress(100);
+
+        await sleep(400);
+
+        // Show result
+        document.getElementById('progress').classList.remove('visible');
+        showResult(result, url);
+
+      } catch (err) {
+        showError(err.message || 'Erro desconhecido durante a conversão.');
+      } finally {
+        document.getElementById('convertBtn').disabled = false;
+      }
+    }
+
+    function showResult(result, url) {
+      const { stats } = result;
+      const card = document.getElementById('resultCard');
+      card.classList.add('visible');
+
+      document.getElementById('resultDesc').textContent =
+        `Estrutura extraída de ${new URL(url).hostname} e convertida para o formato de template do Elementor.`;
+
+      document.getElementById('resultStats').innerHTML = `
+        <div class="stat-box"><div class="stat-box__value">${stats.sections}</div><div class="stat-box__label">seções</div></div>
+        <div class="stat-box"><div class="stat-box__value">${stats.widgets}</div><div class="stat-box__label">widgets</div></div>
+        <div class="stat-box"><div class="stat-box__value">${stats.headings}</div><div class="stat-box__label">títulos</div></div>
+        <div class="stat-box"><div class="stat-box__value">${stats.buttons}</div><div class="stat-box__label">botões</div></div>
+      `;
+
+      // Preview (first 80 lines of JSON)
+      const jsonStr = JSON.stringify(generatedJSON, null, 2);
+      const preview = jsonStr.split('\n').slice(0, 80).join('\n') + '\n...\n}';
+      document.getElementById('jsonPreview').textContent = preview;
+
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function downloadJSON() {
+      if (!generatedJSON) return;
+      const blob = new Blob([JSON.stringify(generatedJSON, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'elementor-template.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function copyJSON() {
+      if (!generatedJSON) return;
+      navigator.clipboard.writeText(JSON.stringify(generatedJSON, null, 2)).then(() => {
+        const btn = document.getElementById('copyBtn');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '✓ Copiado!';
+        btn.style.background = '#16A34A';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2000);
+      });
+    }
+
+    // Allow pressing Enter in input
+    document.getElementById('urlInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') startConversion();
+    });
+  </script>
+</body>
+</html>
