@@ -615,16 +615,12 @@ img { max-width: 100%; display: block; }
 }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
 .testimonial-avatar {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.8125rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px var(--primary);
   flex-shrink: 0;
 }
 .testimonial-name { font-size: 0.9375rem; font-weight: 600; }
