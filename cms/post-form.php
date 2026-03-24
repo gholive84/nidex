@@ -177,10 +177,11 @@ adminHeader($pageTitle, 'posts');
         </div>
       </div>
 
-      <!-- Content (TinyMCE) -->
+      <!-- Content (Quill) -->
       <div class="form-card">
         <label class="form-label">Conteúdo</label>
-        <textarea id="content" name="content"><?= htmlspecialchars($post['content']) ?></textarea>
+        <div id="editor" style="min-height:420px;font-family:Inter,sans-serif;font-size:16px;color:#0F172A;line-height:1.7"></div>
+        <textarea id="content" name="content" style="display:none"><?= htmlspecialchars($post['content']) ?></textarea>
       </div>
     </div>
 
@@ -255,19 +256,39 @@ adminHeader($pageTitle, 'posts');
   </div>
 </form>
 
-<!-- TinyMCE -->
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- Quill WYSIWYG -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css">
+<style>
+  .ql-toolbar.ql-snow { border-color: #E2E8F0; border-radius: 8px 8px 0 0; background: #F8FAFC; }
+  .ql-container.ql-snow { border-color: #E2E8F0; border-radius: 0 0 8px 8px; min-height: 400px; }
+  .ql-editor { font-family: Inter, sans-serif; font-size: 16px; color: #0F172A; line-height: 1.7; min-height: 400px; }
+  .ql-editor.ql-blank::before { color: #94A3B8; font-style: normal; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 <script>
-tinymce.init({
-  selector: '#content',
-  height: 460,
-  menubar: true,
-  language: 'pt_BR',
-  plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
-  toolbar: 'undo redo | blocks | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | code fullscreen',
-  content_style: 'body { font-family: Inter, sans-serif; font-size: 16px; color: #0F172A; line-height: 1.7; }',
-  branding: false,
-  promotion: false,
+const quill = new Quill('#editor', {
+  theme: 'snow',
+  placeholder: 'Escreva o conteúdo do post...',
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ color: [] }, { background: [] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      [{ align: [] }],
+      ['link', 'image', 'blockquote', 'code-block'],
+      ['clean']
+    ]
+  }
+});
+
+// Load existing content
+const existingContent = <?= json_encode($post['content']) ?>;
+if (existingContent) quill.root.innerHTML = existingContent;
+
+// Sync to hidden textarea on submit
+document.getElementById('postForm').addEventListener('submit', function() {
+  document.getElementById('content').value = quill.root.innerHTML;
 });
 
 // Auto-generate slug from title
