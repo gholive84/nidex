@@ -501,10 +501,10 @@ try {
         </div>
 
         <!-- Right: phone mockup -->
-        <div class="phone-mockup reveal reveal--delay">
-          <div class="phone-mockup__frame">
-            <div class="phone-mockup__notch"></div>
-            <div class="phone-mockup__screen">
+        <div class="phone-mockup reveal reveal--delay" id="phoneMockup">
+          <div class="phone-mockup__wrapper">
+            <!-- App screen content — displayed inside the iPhone frame -->
+            <div class="phone-mockup__screen-inner">
               <div class="phone-mockup__topbar">
                 <span class="phone-mockup__brand">nidex</span>
                 <div class="phone-mockup__dot-btn"></div>
@@ -540,6 +540,8 @@ try {
                 <div class="phone-mockup__nav-item">IA</div>
               </div>
             </div>
+            <!-- iPhone mockup image overlaid on top -->
+            <img src="/uploads/iphone-moc.png" class="phone-mockup__img" alt="Nidex Mobile App" loading="lazy">
           </div>
           <div class="phone-mockup__glow"></div>
         </div>

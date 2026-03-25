@@ -249,3 +249,30 @@ document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
     }
   });
 });
+
+// ===========================
+// PHONE MOCKUP — parallax scroll
+// ===========================
+const phoneMockup = document.getElementById('phoneMockup');
+if (phoneMockup) {
+  const mobileSection = phoneMockup.closest('.mobile-section');
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const rect = mobileSection.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        // Active while section is visible
+        if (rect.top < viewH && rect.bottom > 0) {
+          // progress 0 (section enters) → 1 (section leaves)
+          const progress = 1 - rect.bottom / (mobileSection.offsetHeight + viewH);
+          const translateY = Math.round(progress * -48);
+          phoneMockup.style.transform = `translateY(${translateY}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}

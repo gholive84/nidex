@@ -1986,30 +1986,38 @@ img { max-width: 100%; display: block; }
   display: flex;
   justify-content: center;
   position: relative;
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
-.phone-mockup__frame {
-  width: 240px;
-  background: #1E293B;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 36px;
-  padding: 12px 12px 20px;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+.phone-mockup__wrapper {
   position: relative;
+  width: 280px;
+}
+/* iPhone image sits on top as the frame overlay */
+.phone-mockup__img {
+  position: relative;
+  display: block;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 32px 64px rgba(0,0,0,0.45));
+}
+/* App screen content sits behind the iPhone frame */
+.phone-mockup__screen-inner {
+  position: absolute;
+  /* tuned to match the white screen area of iphone-moc.png */
+  top: 8.5%;
+  left: 5%;
+  right: 5%;
+  bottom: 4%;
   z-index: 1;
-}
-.phone-mockup__notch {
-  width: 80px; height: 20px;
   background: #0F172A;
-  border-radius: 10px;
-  margin: 0 auto 12px;
-}
-.phone-mockup__screen {
-  background: #0F172A;
-  border-radius: 20px;
-  padding: 12px;
+  border-radius: 24px;
+  padding: 14px 12px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow: hidden;
 }
 .phone-mockup__topbar {
   display: flex;
@@ -2079,11 +2087,12 @@ img { max-width: 100%; display: block; }
 }
 .phone-mockup__glow {
   position: absolute;
-  bottom: -10px; left: 50%;
+  bottom: -16px; left: 50%;
   transform: translateX(-50%);
-  width: 140px; height: 30px;
-  background: rgba(37,99,235,0.35);
-  filter: blur(20px);
+  width: 160px; height: 40px;
+  background: rgba(37,99,235,0.4);
+  filter: blur(28px);
+  z-index: 0;
 }
 
 /* ===========================
