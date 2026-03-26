@@ -490,7 +490,7 @@ try {
     <!-- MOBILE SECTION -->
     <section class="mobile-section">
       <!-- Swap /images/mobile-bg.jpg for a real city/office photo -->
-      <div class="mobile-section__bg" style="background-image:url('/images/mobile-bg.jpg')"></div>
+      <div class="mobile-section__bg" style="background-image:url('/uploads/mobile-bg.jpg')"></div>
       <div class="mobile-section__overlay"></div>
       <div class="container mobile-section__inner">
 
