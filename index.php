@@ -489,8 +489,7 @@ try {
 
     <!-- MOBILE SECTION -->
     <section class="mobile-section">
-      <!-- Swap /images/mobile-bg.jpg for a real city/office photo -->
-      <div class="mobile-section__bg" style="background-image:url('/uploads/mobile-bg.jpg')"></div>
+      <div class="mobile-section__bg"></div>
       <div class="mobile-section__overlay"></div>
       <div class="container mobile-section__inner">
 
@@ -525,12 +524,9 @@ try {
         <!-- Right: phone mockup -->
         <div class="phone-mockup reveal reveal--delay" id="phoneMockup">
           <div class="phone-mockup__wrapper">
-            <!-- Gradient screen shown behind the iPhone frame -->
+            <!-- App screenshot shown inside the iPhone frame -->
             <div class="phone-mockup__screen-inner">
-              <div class="phone-mockup__screen-logo">
-                <img src="/uploads/logo-nidex-white.svg" alt="nidex" />
-              </div>
-              <div class="phone-mockup__screen-tagline">Seu negócio na palma da mão</div>
+              <img src="/uploads/mobile-bg.jpg" alt="Nidex App" class="phone-mockup__screen-img" loading="lazy" />
             </div>
             <!-- iPhone frame overlay -->
             <img src="/uploads/iphone-moc.png" class="phone-mockup__img" alt="Nidex Mobile App" loading="lazy">
