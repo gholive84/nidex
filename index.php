@@ -496,6 +496,7 @@ try {
       </div>
 
       <div class="container mobile-section__inner">
+        <div class="mobile-section__spacer"></div>
         <div class="mobile-section__content reveal">
           <span class="section-label section-label--accent">Em todos os lugares</span>
           <h2 class="mobile-section__title">
@@ -506,18 +507,35 @@ try {
             Disponível para iOS e Android. Acesse seus dados, feche negócios e gerencie sua equipe de onde estiver, a qualquer hora.
           </p>
 
-          <!-- Caixa de destaques -->
-          <div class="mobile-section__box">
-            <h5 class="mobile-section__box-title">Tudo que você precisa, na tela do celular</h5>
-            <ul class="mobile-section__features">
-              <li>
-                <p>Visualize o dashboard completo, acompanhe vendas e fluxo de caixa em tempo real, sem precisar abrir o computador.</p>
-              </li>
-              <li>
-                <p>Registre pagamentos, responda clientes e gerencie tarefas da equipe — com o suporte da IA integrada do nidex.</p>
-              </li>
-            </ul>
-          </div>
+          <ul class="mobile-section__features">
+            <li>
+              <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div class="feat-text">
+                <strong>Dashboard em tempo real</strong>
+                <span>Visualize vendas, fluxo de caixa e métricas sem precisar abrir o computador.</span>
+              </div>
+            </li>
+            <li>
+              <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M18 2v4h4"/></svg>
+              </div>
+              <div class="feat-text">
+                <strong>Registros rápidos</strong>
+                <span>Pagamentos, cobranças e tarefas da equipe direto do celular em segundos.</span>
+              </div>
+            </li>
+            <li>
+              <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+              </div>
+              <div class="feat-text">
+                <strong>IA integrada</strong>
+                <span>Responda clientes e tome decisões com o assistente inteligente do nidex.</span>
+              </div>
+            </li>
+          </ul>
 
           <div class="mobile-section__ctas">
             <a href="#" class="btn btn--white">
