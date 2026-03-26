@@ -131,7 +131,11 @@ img { max-width: 100%; display: block; }
   width: auto;
   max-width: 110px;
   display: block;
+  transition: filter 0.3s;
 }
+/* Logo branca sobre hero escuro; logo preta sobre navbar branca */
+.navbar:not(.scrolled) .navbar__logo img { filter: brightness(0) invert(1); }
+.navbar.scrolled .navbar__logo img        { filter: none; }
 
 .navbar__links {
   display: flex;
@@ -1638,13 +1642,15 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center top;
+  background-position: 65% center;
   background-repeat: no-repeat;
 }
 .hero--photo .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(15,23,42,0.72), rgba(15,23,42,0.88));
+  background:
+    linear-gradient(to right,  rgba(15,23,42,0.93) 0%, rgba(15,23,42,0.75) 45%, rgba(15,23,42,0.25) 80%, rgba(15,23,42,0.1) 100%),
+    linear-gradient(to bottom, rgba(15,23,42,0.4)  0%, transparent 30%, transparent 70%, rgba(15,23,42,0.5) 100%);
 }
 .hero__inner--left {
   flex-direction: column;
