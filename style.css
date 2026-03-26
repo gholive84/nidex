@@ -1638,13 +1638,18 @@ img { max-width: 100%; display: block; }
 /* ===========================
    HERO — PHOTO BG VARIANT
 =========================== */
+@keyframes hero-zoom {
+  from { transform: scaleX(-1) scale(1);    }
+  to   { transform: scaleX(-1) scale(1.12); }
+}
 .hero--photo .hero__photo-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: 65% center;
   background-repeat: no-repeat;
-  transform: scaleX(-1);
+  transform-origin: center center;
+  animation: hero-zoom 22s ease-in-out infinite alternate;
 }
 .hero--photo .hero__overlay {
   position: absolute;
