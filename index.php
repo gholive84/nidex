@@ -488,28 +488,18 @@ try {
     </section>
 
     <!-- MOBILE SECTION -->
-    <section class="mobile-section">
+    <section class="mobile-section" id="mobileSection">
+      <!-- Parallax background image -->
+      <div class="mobile-section__bg" id="mobileBg"></div>
+      <!-- Dark gradient overlay -->
+      <div class="mobile-section__overlay"></div>
+
       <div class="container mobile-section__inner">
-
-        <!-- Left: phone mockup -->
-        <div class="mobile-section__visual reveal">
-          <div class="phone-mockup" id="phoneMockup">
-            <div class="phone-mockup__wrapper">
-              <div class="phone-mockup__screen-inner">
-                <img src="/uploads/mobile-app-screen.png" alt="Nidex App" class="phone-mockup__screen-img" loading="lazy" />
-              </div>
-              <img src="/uploads/iphone-moc.png" class="phone-mockup__img" alt="Nidex Mobile App" loading="lazy">
-            </div>
-            <div class="phone-mockup__glow"></div>
-          </div>
-        </div>
-
-        <!-- Right: content -->
-        <div class="mobile-section__content reveal reveal--delay">
-          <span class="section-label">Em todos os lugares</span>
+        <div class="mobile-section__content reveal">
+          <span class="section-label section-label--accent">Em todos os lugares</span>
           <h2 class="mobile-section__title">
             Seu negócio na<br />
-            <span class="text-primary">palma da mão.</span>
+            <span class="text-accent">palma da mão.</span>
           </h2>
           <p class="mobile-section__desc">
             Disponível para iOS e Android. Acesse seus dados, feche negócios e gerencie sua equipe de onde estiver, a qualquer hora.
@@ -529,17 +519,16 @@ try {
           </div>
 
           <div class="mobile-section__ctas">
-            <a href="#" class="btn btn--primary">
+            <a href="#" class="btn btn--white">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
               App iOS
             </a>
-            <a href="#" class="btn btn--outline">
+            <a href="#" class="btn btn--ghost">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
               Google Play
             </a>
           </div>
         </div>
-
       </div>
     </section>
 

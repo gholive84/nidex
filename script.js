@@ -355,11 +355,11 @@ document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
 })();
 
 // ===========================
-// PHONE MOCKUP — parallax scroll
+// MOBILE SECTION — parallax bg
 // ===========================
-const phoneMockup = document.getElementById('phoneMockup');
-if (phoneMockup) {
-  const mobileSection = phoneMockup.closest('.mobile-section');
+const mobileBg = document.getElementById('mobileBg');
+if (mobileBg) {
+  const mobileSection = document.getElementById('mobileSection');
   let ticking = false;
 
   window.addEventListener('scroll', () => {
@@ -367,12 +367,11 @@ if (phoneMockup) {
       requestAnimationFrame(() => {
         const rect = mobileSection.getBoundingClientRect();
         const viewH = window.innerHeight;
-        // Active while section is visible
         if (rect.top < viewH && rect.bottom > 0) {
-          // progress 0 (section enters) → 1 (section leaves)
-          const progress = 1 - rect.bottom / (mobileSection.offsetHeight + viewH);
-          const translateY = Math.round(progress * -48);
-          phoneMockup.style.transform = `translateY(${translateY}px)`;
+          // progress 0→1 conforme a seção passa pela viewport
+          const progress = (viewH - rect.top) / (viewH + mobileSection.offsetHeight);
+          const translateY = Math.round((progress - 0.5) * 120);
+          mobileBg.style.transform = `translateY(${translateY}px)`;
         }
         ticking = false;
       });
