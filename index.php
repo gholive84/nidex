@@ -404,12 +404,13 @@ try {
 
     <!-- AI SECTION -->
     <section id="ia" class="ai-section">
-      <div class="ai-section__glow"></div>
+      <div class="ai-section__photo"></div>
+      <div class="ai-section__overlay"></div>
       <div class="container ai-section__inner">
 
         <!-- Left: text -->
         <div class="ai-section__content reveal">
-          <span class="section-label section-label--accent">Inteligência Artificial nativa</span>
+          <span class="section-label">Inteligência Artificial nativa</span>
           <h2 class="ai-section__title">
             Diga o que precisa.<br />
             <span class="text-accent">A IA executa.</span>
