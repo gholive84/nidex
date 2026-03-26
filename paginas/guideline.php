@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -149,7 +149,7 @@
       line-height: 1.6;
       margin: 0;
     }
-    .gl-code pre .token-key   { color: #38BDF8; }
+    .gl-code pre .token-key   { color: #29B2B0; }
     .gl-code pre .token-val   { color: #86efac; }
     .gl-code pre .token-com   { color: rgba(255,255,255,0.3); }
 
@@ -162,13 +162,13 @@
       margin-bottom: 24px;
     }
     .gl-spacing__item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-    .gl-spacing__box  { background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.3); border-radius: 4px; width: 20px; }
+    .gl-spacing__box  { background: rgba(11,100,244,0.15); border: 1px solid rgba(11,100,244,0.3); border-radius: 4px; width: 20px; }
     .gl-spacing__label { font-size: 0.6875rem; color: var(--text-muted); }
 
     /* Radius */
     .gl-radii { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 24px; }
     .gl-radius__item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .gl-radius__box { width: 60px; height: 60px; background: rgba(37,99,235,0.12); border: 2px solid rgba(37,99,235,0.3); }
+    .gl-radius__box { width: 60px; height: 60px; background: rgba(11,100,244,0.12); border: 2px solid rgba(11,100,244,0.3); }
     .gl-radius__label { font-size: 0.75rem; font-weight: 600; color: var(--text-primary); text-align: center; }
     .gl-radius__value { font-size: 0.6875rem; color: var(--text-muted); }
 
@@ -207,7 +207,7 @@
 
         <!-- Fundo claro -->
         <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border)">
-          <div style="background:#E5E7EB;padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px">
+          <div style="background:#0B64F4;padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px">
             <img src="/uploads/logo-nidex-cor.svg" alt="nidex" style="height:40px;width:auto" />
           </div>
           <div style="background:#fff;padding:16px">
@@ -218,7 +218,7 @@
 
         <!-- Fundo escuro -->
         <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border)">
-          <div style="background:#000;padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px">
+          <div style="background:#0B64F4;padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px">
             <img src="/uploads/logo-nidex-cor.svg" alt="nidex" style="height:40px;width:auto" />
           </div>
           <div style="background:#fff;padding:16px">
@@ -229,7 +229,7 @@
 
         <!-- Fundo azul/primário -->
         <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border)">
-          <div style="background:#2563EB;padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px">
+          <div style="background:#0B64F4;padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px">
             <img src="/uploads/logo-nidex-white.svg" alt="nidex" style="height:40px;width:auto" />
           </div>
           <div style="background:#fff;padding:16px">
@@ -243,7 +243,7 @@
       <table class="gl-tokens">
         <tr><th>Arquivo</th><th>Uso</th></tr>
         <tr><td>logo-nidex-cor.svg</td><td>Navbar, rodapé dark, fundos claros e escuros (preto/navy)</td></tr>
-        <tr><td>logo-nidex-white.svg</td><td>Fundos na cor primária (#2563EB) ou gradientes azuis</td></tr>
+        <tr><td>logo-nidex-white.svg</td><td>Fundos na cor primária (#0B64F4) ou gradientes azuis</td></tr>
       </table>
 
       <div style="margin-top:20px;background:var(--bg-light);border:1px solid var(--border);border-radius:12px;padding:20px">
@@ -263,9 +263,9 @@
       <div class="gl-swatches">
         <?php
         $colors = [
-          ['--primary',       '#2563EB', 'primary',       'Botões, links, destaques'],
-          ['--primary-dark',  '#1D4ED8', 'primary-dark',  'Hover de botões'],
-          ['--accent',        '#38BDF8', 'accent',        'Destaques em headlines'],
+          ['--primary',       '#0B64F4', 'primary',       'Botões, links, destaques'],
+          ['--primary-dark',  '#0952CC', 'primary-dark',  'Hover de botões'],
+          ['--accent',        '#29B2B0', 'accent',        'Destaques em headlines'],
           ['--bg-dark',       '#0F172A', 'bg-dark',       'Fundo seções escuras'],
           ['--bg-dark-2',     '#1E293B', 'bg-dark-2',     'Cards em fundo escuro'],
           ['--bg-light',      '#F8FAFC', 'bg-light',      'Fundo seções claras'],
@@ -305,7 +305,7 @@
           </div>
           <div class="gl-gradient__info">
             <div class="gl-gradient__name">Gradiente Principal — Botões CTA</div>
-            <div class="gl-gradient__css">linear-gradient(135deg, #2563EB, #1D4ED8)</div>
+            <div class="gl-gradient__css">linear-gradient(135deg, #0B64F4, #0952CC)</div>
             <div class="gl-gradient__class">.gradient-primary</div>
           </div>
         </div>
@@ -325,7 +325,7 @@
           </div>
           <div class="gl-gradient__info">
             <div class="gl-gradient__name">Text Gradient — Destaques tipográficos</div>
-            <div class="gl-gradient__css">linear-gradient(135deg, #2563EB, #38BDF8)</div>
+            <div class="gl-gradient__css">linear-gradient(90deg, #29B2B0, #0B64F4)</div>
             <div class="gl-gradient__class">.text-gradient</div>
           </div>
         </div>
@@ -344,7 +344,7 @@
     <!-- ── TIPOGRAFIA ── -->
     <section class="gl-section">
       <h2 class="gl-section__title">Tipografia</h2>
-      <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:24px">Fonte: <strong>Inter</strong> — 400, 500, 600, 700, 800</p>
+      <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:24px">Fonte: <strong>Plus Jakarta Sans</strong> — 300, 400, 500, 600, 700, 800</p>
 
       <div style="margin-bottom:40px">
         <?php
@@ -354,7 +354,7 @@
           ['Headline Médio (H2)', '2–2.75rem · 700', 'Tudo que você precisa.', 'font-size:1.875rem;font-weight:700;color:#0F172A'],
           ['Headline Pequeno (H3)', '1.25–1.5rem · 700', 'CRM Inteligente', 'font-size:1.25rem;font-weight:700;color:#0F172A'],
           ['Corpo', '1–1.125rem · 400', 'Acompanhe cada cliente do primeiro contato ao fechamento. Pipeline visual com automações.', 'font-size:1rem;font-weight:400;line-height:1.75;color:#64748B'],
-          ['Label de Seção', '0.75rem · 600 · uppercase', 'FUNCIONALIDADES', 'font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB'],
+          ['Label de Seção', '0.75rem · 600 · uppercase', 'FUNCIONALIDADES', 'font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#0B64F4'],
           ['Small / Caption', '0.875rem · 400', 'Sem cartão de crédito · Cancele quando quiser', 'font-size:0.875rem;color:#94A3B8'],
         ];
         foreach ($types as $t): ?>
@@ -374,7 +374,7 @@
           Tudo que você precisa.
           <span style="color:var(--accent)">Nada que você não precisa.</span>
         </h2>
-        <p style="font-size:0.8125rem;color:var(--text-muted);margin-top:12px">Palavra-chave em <code>var(--accent)</code> (#38BDF8) em fundos escuros, ou <code>var(--primary)</code> (#2563EB) em fundos claros</p>
+        <p style="font-size:0.8125rem;color:var(--text-muted);margin-top:12px">Palavra-chave em <code>var(--accent)</code> (#29B2B0) em fundos escuros, ou <code>var(--primary)</code> (#0B64F4) em fundos claros</p>
       </div>
     </section>
 
@@ -609,9 +609,9 @@
 }
 
 /* Utility classes */
-.gradient-primary  { background: linear-gradient(135deg, #2563EB, #1D4ED8); }
-.gradient-dark     { background: linear-gradient(135deg, #0F172A, #1E3A8A); }
-.text-gradient     { background: linear-gradient(135deg, #2563EB, #38BDF8);
+.gradient-primary  { background: linear-gradient(135deg, #0B64F4, #0952CC); }
+.gradient-dark     { background: linear-gradient(135deg, #0B64F4, #0952CC); }
+.text-gradient     { background: linear-gradient(135deg, #0B64F4, #0952CC);
                      -webkit-background-clip: text;
                      -webkit-text-fill-color: transparent; }
 .text-primary      { color: var(--primary); }
