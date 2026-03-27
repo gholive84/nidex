@@ -19,17 +19,17 @@ AddDefaultCharset UTF-8
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    # Páginas principais (pasta paginas/)
-    RewriteRule ^treinamento/?$    paginas/treinamento.php    [L]
-    RewriteRule ^desenvolvimento/?$ paginas/desenvolvimento.php [L]
-    RewriteRule ^consultoria/?$    paginas/consultoria.php    [L]
-    RewriteRule ^servicos/?$       paginas/servicos.php       [L]
-    RewriteRule ^blog/?$           paginas/blog.php           [L]
-    RewriteRule ^guideline/?$      paginas/guideline.php      [L]
-    RewriteRule ^gerar-imagem/?$   paginas/gerar-imagem.php   [L]
+    # Páginas principais (pasta site/paginas/)
+    RewriteRule ^treinamento/?$    site/paginas/treinamento.php    [L]
+    RewriteRule ^desenvolvimento/?$ site/paginas/desenvolvimento.php [L]
+    RewriteRule ^consultoria/?$    site/paginas/consultoria.php    [L]
+    RewriteRule ^servicos/?$       site/paginas/servicos.php       [L]
+    RewriteRule ^blog/?$           site/paginas/blog.php           [L]
+    RewriteRule ^guideline/?$      site/paginas/guideline.php      [L]
+    RewriteRule ^gerar-imagem/?$   site/paginas/gerar-imagem.php   [L]
 
     # Posts do blog: /blog/meu-post → post.php?slug=meu-post
-    RewriteRule ^blog/([a-z0-9\-]+)/?$ paginas/post.php?slug=$1 [L,QSA]
+    RewriteRule ^blog/([a-z0-9\-]+)/?$ site/paginas/post.php?slug=$1 [L,QSA]
 </IfModule>
 
 # ── Segurança ─────────────────────────────────────────────────────────────────

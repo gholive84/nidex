@@ -1,0 +1,13 @@
+/* ===========================
+   TOKENS
+=========================== */
+:root {
+  --primary: #0B64F4;
+  --primary-dark: #0952CC;
+  --accent: #29B2B0;
+  --bg-dark: #0F172A;
+  --bg-light: #F8FAFC;
+  --text-primary: #0F172A;
+  --text-muted: #64748B;
+  --border: #E2E8F0;
+}
