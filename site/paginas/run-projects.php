@@ -113,6 +113,107 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<div class="run-portfolio">
+  <div class="container">
+    <div class="run-portfolio__header reveal">
+      <span class="section-label">Portfólio</span>
+      <h3 class="run-portfolio__title">Projetos que <span class="text-accent">entregamos</span></h3>
+    </div>
+    <div class="run-portfolio__grid">
+
+      <div class="run-port-card reveal">
+        <div class="run-port-card__img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboard Analytics" loading="lazy" />
+          <div class="run-port-card__overlay"><span class="run-port-card__tag">Analytics</span></div>
+        </div>
+        <div class="run-port-card__body">
+          <h4>Dashboard de Analytics com IA Preditiva</h4>
+          <p>Plataforma de análise de dados com modelo preditivo para tomada de decisões em tempo real.</p>
+        </div>
+      </div>
+
+      <div class="run-port-card reveal">
+        <div class="run-port-card__img">
+          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Chatbot IA" loading="lazy" />
+          <div class="run-port-card__overlay"><span class="run-port-card__tag">Chatbot</span></div>
+        </div>
+        <div class="run-port-card__body">
+          <h4>Assistente Virtual para E-commerce</h4>
+          <p>Chatbot com IA que reduziu em 65% o tempo de resposta ao cliente e aumentou conversão.</p>
+        </div>
+      </div>
+
+      <div class="run-port-card reveal">
+        <div class="run-port-card__img">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=80" alt="App Mobile" loading="lazy" />
+          <div class="run-port-card__overlay"><span class="run-port-card__tag">Mobile App</span></div>
+        </div>
+        <div class="run-port-card__body">
+          <h4>App de Gestão com IA para Franquias</h4>
+          <p>Aplicativo que unifica operações de 40+ unidades com automações inteligentes.</p>
+        </div>
+      </div>
+
+      <div class="run-port-card reveal">
+        <div class="run-port-card__img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="CRM Inteligente" loading="lazy" />
+          <div class="run-port-card__overlay"><span class="run-port-card__tag">CRM</span></div>
+        </div>
+        <div class="run-port-card__body">
+          <h4>CRM Inteligente com Score de Leads</h4>
+          <p>Sistema de gestão comercial com IA que prioriza automaticamente os melhores leads.</p>
+        </div>
+      </div>
+
+      <div class="run-port-card reveal">
+        <div class="run-port-card__img">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Automação" loading="lazy" />
+          <div class="run-port-card__overlay"><span class="run-port-card__tag">Automação</span></div>
+        </div>
+        <div class="run-port-card__body">
+          <h4>Pipeline de Automação para Indústria</h4>
+          <p>Automação de processos repetitivos com IA, economizando 300h/mês de trabalho manual.</p>
+        </div>
+      </div>
+
+      <div class="run-port-card reveal">
+        <div class="run-port-card__img">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80" alt="Plataforma EAD" loading="lazy" />
+          <div class="run-port-card__overlay"><span class="run-port-card__tag">EdTech</span></div>
+        </div>
+        <div class="run-port-card__body">
+          <h4>Plataforma EAD com Tutor de IA</h4>
+          <p>LMS com tutor inteligente que adapta o conteúdo ao ritmo e perfil de cada aluno.</p>
+        </div>
+      </div>
+
+      <div class="run-port-card reveal">
+        <div class="run-port-card__img">
+          <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=800&q=80" alt="Landing Page" loading="lazy" />
+          <div class="run-port-card__overlay"><span class="run-port-card__tag">Landing Page</span></div>
+        </div>
+        <div class="run-port-card__body">
+          <h4>Landing Page de Alta Conversão com IA</h4>
+          <p>Página otimizada com personalização dinâmica — 3x mais conversão que a versão anterior.</p>
+        </div>
+      </div>
+
+      <div class="run-port-card run-port-card--cta reveal">
+        <div class="run-port-card__cta-inner">
+          <div class="run-port-card__cta-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <h4>Seu projeto aqui</h4>
+          <p>Vamos construir a próxima solução de IA da sua empresa.</p>
+          <a href="#contato" class="btn btn--primary open-modal" style="margin-top:20px">Falar com a gente</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- ENTREGA -->
 <section class="svc-deliverables">
   <div class="container">
