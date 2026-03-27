@@ -12,8 +12,8 @@ window.addEventListener('scroll', () => {
 // ===========================
 document.querySelectorAll('.nav-dropdown').forEach(drop => {
   const trigger = drop.querySelector('.nav-dropdown__trigger');
-  const menu    = drop.querySelector('.nav-dropdown__menu');
-  if (!trigger || !menu) return;
+  const menu    = drop.querySelector('.nav-dropdown__menu, .nav-mega');
+  if (!trigger) return;
 
   let hoverTimer;
 
