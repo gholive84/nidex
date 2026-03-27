@@ -61,7 +61,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
 <section class="run-block" id="academy">
   <div class="run-block__img-col">
     <div class="run-block__img-wrap">
-      <img src="/site/uploads/run-academy.png" alt="Nidex.Academy — Treinamento em IA" loading="lazy" />
+      <img src="/site/assets/img/run-academy.jpg" alt="Nidex.Academy — Treinamento em IA" loading="lazy" />
       <div class="run-block__img-overlay"></div>
     </div>
   </div>
@@ -118,7 +118,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
 <section class="run-block run-block--alt run-block--reverse" id="projects">
   <div class="run-block__img-col">
     <div class="run-block__img-wrap">
-      <img src="/site/uploads/run-projects.png" alt="Nidex.Projects — Desenvolvimento com IA" loading="lazy" />
+      <img src="/site/assets/img/run-projects.jpg" alt="Nidex.Projects — Desenvolvimento com IA" loading="lazy" />
       <div class="run-block__img-overlay"></div>
     </div>
   </div>
@@ -288,7 +288,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
 <section class="run-block run-block--dark" id="cowork">
   <div class="run-block__img-col">
     <div class="run-block__img-wrap">
-      <img src="/site/uploads/run-cowork.png" alt="Nidex.Cowork — IA integrada ao seu software" loading="lazy" />
+      <img src="/site/assets/img/run-cowork.jpg" alt="Nidex.Cowork — IA integrada ao seu software" loading="lazy" />
       <div class="run-block__img-overlay run-block__img-overlay--dark"></div>
     </div>
   </div>
@@ -345,7 +345,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
 <section class="run-block run-block--reverse" id="consulting">
   <div class="run-block__img-col">
     <div class="run-block__img-wrap">
-      <img src="/site/uploads/run-consulting.png" alt="Nidex.Consulting — Consultoria Premium em IA" loading="lazy" />
+      <img src="/site/assets/img/run-consulting.jpg" alt="Nidex.Consulting — Consultoria Premium em IA" loading="lazy" />
       <div class="run-block__img-overlay"></div>
     </div>
   </div>
