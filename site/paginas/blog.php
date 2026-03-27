@@ -1,5 +1,5 @@
 <?php
-require_once dirname(dirname(__DIR__)) . '/config.php';
+require_once dirname(dirname(__DIR__)) . '/cms/config.php';
 require_once dirname(dirname(__DIR__)) . '/cms/includes/db.php';
 
 $pdo = getDB();

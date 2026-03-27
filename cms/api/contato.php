@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__DIR__) . '/config.php';
-require_once dirname(__DIR__) . '/cms/includes/db.php';
+require_once dirname(__DIR__) . '/includes/db.php';
 
 header('Content-Type: application/json');
 header('X-Content-Type-Options: nosniff');

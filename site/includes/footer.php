@@ -112,7 +112,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const btn = document.getElementById('cf-submit');
   btn.disabled = true; btn.textContent = 'Enviando...';
   try {
-    const res = await fetch('/api/contato.php', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({name,email,phone}) });
+    const res = await fetch('/cms/api/contato.php', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({name,email,phone}) });
     const data = await res.json();
     if (data.success) {
       document.getElementById('form-success').style.display='flex';

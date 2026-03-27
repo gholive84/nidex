@@ -1,7 +1,7 @@
 <?php
 $latestPosts = [];
 try {
-    require_once __DIR__ . '/config.php';
+    require_once __DIR__ . '/cms/config.php';
     require_once __DIR__ . '/cms/includes/db.php';
     $pdo = getDB();
     $stmt = $pdo->query(
