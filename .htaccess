@@ -25,6 +25,7 @@ AddDefaultCharset UTF-8
     RewriteRule ^run/cowork/?$      site/paginas/run-cowork.php     [L]
     RewriteRule ^run/consulting/?$  site/paginas/run-consulting.php [L]
     RewriteRule ^run/?$             site/paginas/run.php            [L]
+    RewriteRule ^suite/?$           site/paginas/suite.php          [L]
     RewriteRule ^blog/?$           site/paginas/blog.php           [L]
     RewriteRule ^guideline/?$      site/paginas/guideline.php      [L]
     RewriteRule ^gerar-imagem/?$   site/paginas/gerar-imagem.php   [L]

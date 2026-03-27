@@ -26,17 +26,47 @@
                 </a>
               </div>
 
-              <!-- Col 2: Módulos -->
+              <!-- Col 2: Módulos grid 4x2 -->
               <div class="nav-mega__col">
                 <div class="nav-mega__col-label">Módulos</div>
-                <ul class="nav-mega__modules">
-                  <li><a href="/#modulos" class="nav-mega__module"><span class="nav-mega__module-dot"></span>CRM & Clientes</a></li>
-                  <li><a href="/#modulos" class="nav-mega__module"><span class="nav-mega__module-dot"></span>Financeiro</a></li>
-                  <li><a href="/#modulos" class="nav-mega__module"><span class="nav-mega__module-dot"></span>Cobranças</a></li>
-                  <li><a href="/#modulos" class="nav-mega__module"><span class="nav-mega__module-dot"></span>Tarefas & Projetos</a></li>
-                  <li><a href="/#modulos" class="nav-mega__module"><span class="nav-mega__module-dot"></span>Agenda & Reuniões</a></li>
-                  <li><a href="/#modulos" class="nav-mega__module"><span class="nav-mega__module-dot"></span>Relatórios</a></li>
-                </ul>
+                <div class="nav-mega__mod-grid">
+                  <a href="/suite#crm" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#EFF6FF;color:#2563EB"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                    <span>CRM & Clientes</span>
+                  </a>
+                  <a href="/suite#financeiro" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#F0FDF4;color:#16A34A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <span>Financeiro</span>
+                  </a>
+                  <a href="/suite#cobrancas" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#FFF7ED;color:#EA580C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+                    <span>Cobranças</span>
+                  </a>
+                  <a href="/suite#tarefas" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#FDF4FF;color:#9333EA"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                    <span>Tarefas</span>
+                  </a>
+                  <a href="/suite#projetos" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#F0F9FF;color:#0284C7"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                    <span>Projetos</span>
+                  </a>
+                  <a href="/suite#agenda" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#FFF1F2;color:#E11D48"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                    <span>Agenda</span>
+                  </a>
+                  <a href="/suite#relatorios" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#FFFBEB;color:#D97706"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                    <span>Relatórios</span>
+                  </a>
+                  <a href="/suite#ia" class="nav-mega__mod">
+                    <div class="nav-mega__mod-icon" style="background:#EFF6FF;color:#2563EB"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+                    <span>IA Embarcada</span>
+                  </a>
+                </div>
+                <a href="/suite" class="nav-mega__col-link" style="margin-top:16px">
+                  Ver plataforma completa
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
               </div>
 
               <!-- Col 3: IA Embarcada -->
@@ -149,8 +179,8 @@
       <div class="mobile-menu__group">
         <span class="mobile-menu__group-label">Nidex.Suite</span>
         <a href="/" class="mobile-menu__link">O que é</a>
-        <a href="/#modulos" class="mobile-menu__link">Módulos</a>
-        <a href="/#ia" class="mobile-menu__link">IA Embarcada</a>
+        <a href="/suite" class="mobile-menu__link">Ver todos os módulos</a>
+        <a href="/suite#ia" class="mobile-menu__link">IA Embarcada</a>
       </div>
       <div class="mobile-menu__group">
         <span class="mobile-menu__group-label">Nidex.Run</span>

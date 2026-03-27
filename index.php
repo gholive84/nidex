@@ -32,6 +32,7 @@ require SITE . '/sections/modules.php';
 require SITE . '/sections/ia.php';
 require SITE . '/sections/mobile.php';
 require SITE . '/sections/why.php';
+require SITE . '/sections/run-preview.php';
 require SITE . '/sections/faq.php';
 require SITE . '/sections/orcamento.php';
 require SITE . '/sections/cta.php';
