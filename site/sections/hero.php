@@ -2,7 +2,7 @@
     <section class="hero-split">
 
       <!-- Painel 1: Nidex.Cowork — Azul -->
-      <a href="/cowork" class="hero-split__panel hero-split__panel--cowork">
+      <div data-href="/cowork" class="hero-split__panel hero-split__panel--cowork">
         <div class="hero-split__grid"></div>
         <div class="hero-split__glow hero-split__glow--blue"></div>
         <div class="hero-split__glow hero-split__glow--blue2"></div>
@@ -28,19 +28,19 @@
             <a href="/cowork#ia" class="hero-split__pill--ia">+ Agentes de IA</a>
           </div>
           <div class="hero-split__cta">
-            <span class="hero-split__btn hero-split__btn--blue">
+            <a href="/cowork" class="hero-split__btn hero-split__btn--blue">
               Conhecer o Cowork
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            </a>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- Divisor central -->
       <div class="hero-split__divider"></div>
 
       <!-- Painel 2: Nidex.Run — Teal/Verde -->
-      <a href="/run" class="hero-split__panel hero-split__panel--run">
+      <div data-href="/run" class="hero-split__panel hero-split__panel--run">
         <div class="hero-split__grid"></div>
         <div class="hero-split__glow hero-split__glow--teal"></div>
         <div class="hero-split__glow hero-split__glow--teal2"></div>
@@ -64,12 +64,22 @@
             <a href="/run/consulting">Consulting</a>
           </div>
           <div class="hero-split__cta">
-            <span class="hero-split__btn hero-split__btn--teal">
+            <a href="/run" class="hero-split__btn hero-split__btn--teal">
               Conhecer o Run
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            </a>
           </div>
         </div>
-      </a>
+      </div>
 
     </section>
+
+    <script>
+      document.querySelectorAll('.hero-split__panel[data-href]').forEach(function(panel) {
+        panel.addEventListener('click', function(e) {
+          if (!e.target.closest('a')) {
+            window.location.href = panel.dataset.href;
+          }
+        });
+      });
+    </script>
