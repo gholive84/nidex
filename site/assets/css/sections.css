@@ -594,8 +594,9 @@
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-  padding: 120px 64px 80px;
+  padding: 120px 56px 80px;
   text-decoration: none;
   cursor: pointer;
   transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -643,14 +644,16 @@
 /* Inner */
 .hero-split__inner {
   position: relative;
-  max-width: 520px;
+  max-width: 480px;
   width: 100%;
+  text-align: center;
 }
 
 /* Eyebrow */
 .hero-split__eyebrow {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -687,7 +690,9 @@
   line-height: 1.75;
   color: rgba(255,255,255,0.45);
   margin-bottom: 32px;
-  max-width: 440px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Pills */
@@ -696,6 +701,7 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 40px;
+  justify-content: center;
 }
 .hero-split__pills span {
   font-size: 0.75rem;
@@ -719,7 +725,7 @@
 }
 
 /* CTA */
-.hero-split__cta { }
+.hero-split__cta { display: flex; justify-content: center; }
 .hero-split__btn {
   display: inline-flex;
   align-items: center;

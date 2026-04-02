@@ -12,9 +12,9 @@
             Nidex.Cowork
           </span>
           <h2 class="hero-split__title">
-            O ecossistema<br />
-            <span class="hero-split__accent hero-split__accent--blue">completo de apps</span><br />
-            com IA que trabalha.
+            Ecossistema completo<br />
+            de Apps com<br />
+            <span class="hero-split__accent hero-split__accent--blue">IA Embarcada.</span>
           </h2>
           <p class="hero-split__desc">
             Todos os apps do seu negócio em um único lugar — com Agentes de IA embarcados em cada módulo, executando tarefas de forma autônoma enquanto você foca no que importa.
@@ -50,7 +50,7 @@
             Nidex.Run
           </span>
           <h2 class="hero-split__title">
-            Agentes de IA<br />
+            Serviços e Agentes de IA<br />
             <span class="hero-split__accent hero-split__accent--teal">sob medida</span><br />
             para o seu negócio.
           </h2>
