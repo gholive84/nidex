@@ -16,7 +16,7 @@
 
       <a href="/run/academy" class="run-prev-card reveal">
         <div class="run-prev-card__img">
-          <img src="/site/assets/img/nidex-academy.png" alt="Nidex.Academy" loading="lazy" />
+          <img src="/site/assets/img/nidex-academy2.png" alt="Nidex.Academy" loading="lazy" />
           <div class="run-prev-card__overlay"></div>
         </div>
         <div class="run-prev-card__body">
@@ -34,7 +34,7 @@
 
       <a href="/run/projects" class="run-prev-card reveal">
         <div class="run-prev-card__img">
-          <img src="/site/assets/img/nidex-projects.png" alt="Nidex.Projects" loading="lazy" />
+          <img src="/site/assets/img/nidex-projects4.png" alt="Nidex.Projects" loading="lazy" />
           <div class="run-prev-card__overlay"></div>
         </div>
         <div class="run-prev-card__body">
@@ -52,7 +52,7 @@
 
       <a href="/run/ia-agents" class="run-prev-card reveal">
         <div class="run-prev-card__img">
-          <img src="/site/assets/img/nidex-agents.png" alt="Nidex.IA Agents" loading="lazy" />
+          <img src="/site/assets/img/nidex-agents2.png" alt="Nidex.IA Agents" loading="lazy" />
           <div class="run-prev-card__overlay"></div>
         </div>
         <div class="run-prev-card__body">
@@ -70,7 +70,7 @@
 
       <a href="/run/consulting" class="run-prev-card reveal">
         <div class="run-prev-card__img">
-          <img src="/site/assets/img/nidex-consulting.png" alt="Nidex.Consulting" loading="lazy" />
+          <img src="/site/assets/img/nidex-consulting3.png" alt="Nidex.Consulting" loading="lazy" />
           <div class="run-prev-card__overlay"></div>
         </div>
         <div class="run-prev-card__body">

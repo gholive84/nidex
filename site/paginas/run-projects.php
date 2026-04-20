@@ -7,7 +7,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
 
 <section class="svc-hero">
   <div class="svc-hero__bg">
-    <img src="/site/assets/img/nidex-projects.png" alt="Nidex.Projects" />
+    <img src="/site/assets/img/nidex-projects4.png" alt="Nidex.Projects" />
   </div>
   <div class="svc-hero__overlay"></div>
   <div class="container svc-hero__inner">
@@ -89,7 +89,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
         </ul>
       </div>
       <div class="svc-solution__img reveal">
-        <img src="/site/assets/img/nidex-projects.png" alt="Desenvolvimento Nidex.Projects" loading="lazy" />
+        <img src="/site/assets/img/nidex-projects4.png" alt="Desenvolvimento Nidex.Projects" loading="lazy" />
       </div>
     </div>
   </div>
