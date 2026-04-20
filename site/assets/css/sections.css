@@ -1796,7 +1796,7 @@ a.hero-split__pill--ia {
 .run-prev-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-  border-color: rgba(56,189,248,0.2);
+  border-color: rgba(16,185,129,0.25);
 }
 .run-prev-card__img {
   position: relative;
@@ -1851,5 +1851,31 @@ a.hero-split__pill--ia {
   border-top: 1px solid rgba(255,255,255,0.06);
   transition: color 0.2s, gap 0.2s;
 }
-.run-prev-card:hover .run-prev-card__link { color: var(--accent); gap: 8px; }
+.run-prev-card:hover .run-prev-card__link { color: #10B981; gap: 8px; }
 .run-preview__cta { text-align: center; }
+
+/* Run preview — green theme */
+.run-preview .section-label { color: #059669; }
+.run-preview .text-accent   { color: #34D399; }
+
+/* Botão verde Nidex.Run */
+.btn--run {
+  background: linear-gradient(135deg, #059669, #047857);
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(5,150,105,0.3);
+}
+.btn--run:hover {
+  background: linear-gradient(135deg, #047857, #065F46);
+  box-shadow: 0 8px 28px rgba(5,150,105,0.4);
+  transform: translateY(-1px);
+}
