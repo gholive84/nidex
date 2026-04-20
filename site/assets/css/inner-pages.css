@@ -115,6 +115,7 @@
 
 /* Classe de destaque verde — usada em TODOS os títulos Run */
 .text-run {
+  display: inline-block;
   background: linear-gradient(90deg, #10B981, #34D399);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -130,9 +131,8 @@
 .svc-problem .section-label--accent,
 .run-cta .section-label--accent   { color: #10B981; }
 
-/* Links e glows */
-.run-sum-card__link { color: #059669; }
-.run-cta__glow      { background: rgba(5,150,105,0.15); }
+/* Glows */
+.run-cta__glow { background: rgba(5,150,105,0.15); }
 
 /* ===========================
    NIDEX.RUN — STICKY NAV
@@ -164,8 +164,8 @@
   text-decoration: none;
   transition: all 0.2s;
 }
-.run-nav__item:hover { color: var(--primary); }
-.run-nav__item.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+.run-nav__item:hover { color: #059669; }
+.run-nav__item.active { color: #059669; border-bottom-color: #059669; font-weight: 600; }
 
 /* ===========================
    NIDEX.RUN — SERVICE BLOCKS
@@ -311,9 +311,9 @@
   margin-top: 1px;
 }
 .run-feat__icon svg { width: 12px; height: 12px; stroke: #fff; }
-.run-feat__icon--accent { background: #0284C7; }
-.run-feat__icon--cyan   { background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.3); }
-.run-feat__icon--cyan svg { stroke: #38BDF8; }
+.run-feat__icon--accent { background: #047857; }
+.run-feat__icon--cyan   { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); }
+.run-feat__icon--cyan svg { stroke: #10B981; }
 .run-feat__icon--gold   { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); }
 .run-feat__icon--gold svg { stroke: #D97706; }
 
@@ -1237,7 +1237,7 @@
 .run-sum-card__desc { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; flex: 1; }
 .run-sum-card__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
 .run-sum-card__chips span { font-size: 0.75rem; font-weight: 500; color: #475569; background: #F1F5F9; padding: 3px 10px; border-radius: 6px; border: 1px solid #E2E8F0; }
-.run-sum-card__link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9375rem; font-weight: 600; color: var(--primary); text-decoration: none; transition: gap 0.2s; }
+.run-sum-card__link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9375rem; font-weight: 600; color: #059669; text-decoration: none; transition: gap 0.2s; }
 .run-sum-card:hover .run-sum-card__link { gap: 10px; }
 
 /* ===========================
