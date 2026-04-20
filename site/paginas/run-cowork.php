@@ -18,7 +18,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h1 class="svc-hero__title">Agentes de IA no seu software.<br /><span class="text-accent">Sem parar sua operação.</span></h1>
     <p class="svc-hero__desc">Nossos Agentes de IA se acoplam ao sistema que você já usa — trabalhando de forma autônoma, sem interromper processos, sem migração de dados, sem risco operacional.</p>
     <div class="svc-hero__ctas">
-      <a href="#contato" class="btn btn--primary open-modal">Ver compatibilidade</a>
+      <a href="#contato" class="btn btn--run open-modal">Ver compatibilidade</a>
       <a href="#contato" class="btn btn--ghost-dark">Agendar demo</a>
     </div>
   </div>
@@ -163,7 +163,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h2 class="run-cta__title">Agentes de IA no seu software.<br /><span class="text-accent">Sem parar nada.</span></h2>
     <p class="run-cta__desc">Fale com nosso time e verificamos a compatibilidade dos nossos Agentes com o seu sistema em até 24h.</p>
     <div class="run-cta__actions">
-      <a href="#contato" class="btn btn--primary open-modal">Ver compatibilidade</a>
+      <a href="#contato" class="btn btn--run open-modal">Ver compatibilidade</a>
       <a href="/run" class="btn btn--ghost-dark">Ver outros serviços</a>
     </div>
   </div>

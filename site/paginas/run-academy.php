@@ -18,7 +18,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h1 class="svc-hero__title">Capacite sua equipe.<br /><span class="text-accent">Produza com IA.</span></h1>
     <p class="svc-hero__desc">Treinamentos in company e online para equipes de qualquer porte. Do primeiro uso ao domínio avançado — tudo customizado para o seu negócio.</p>
     <div class="svc-hero__ctas">
-      <a href="#contato" class="btn btn--primary open-modal">Solicitar treinamento</a>
+      <a href="#contato" class="btn btn--run open-modal">Solicitar treinamento</a>
       <a href="#contato" class="btn btn--ghost-dark">Falar com especialista</a>
     </div>
   </div>
@@ -163,7 +163,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h2 class="run-cta__title">Sua equipe pode ser<br /><span class="text-accent">10x mais produtiva com IA.</span></h2>
     <p class="run-cta__desc">Fale com nosso time e vamos montar o treinamento ideal para o seu momento.</p>
     <div class="run-cta__actions">
-      <a href="#contato" class="btn btn--primary open-modal">Solicitar treinamento</a>
+      <a href="#contato" class="btn btn--run open-modal">Solicitar treinamento</a>
       <a href="/run" class="btn btn--ghost-dark">Ver outros serviços</a>
     </div>
   </div>

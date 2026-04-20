@@ -18,7 +18,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h1 class="svc-hero__title">Sua ideia de IA.<br /><span class="text-accent">Executada por quem entende.</span></h1>
     <p class="svc-hero__desc">Desenvolvimento de softwares, apps e automações com IA embarcada. MVP em até 2 semanas — do discovery ao deploy com time completo.</p>
     <div class="svc-hero__ctas">
-      <a href="#contato" class="btn btn--primary open-modal">Iniciar projeto</a>
+      <a href="#contato" class="btn btn--run open-modal">Iniciar projeto</a>
       <a href="#contato" class="btn btn--ghost-dark">Falar com especialista</a>
     </div>
   </div>
@@ -206,7 +206,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
           </div>
           <h4>Seu projeto aqui</h4>
           <p>Vamos construir a próxima solução de IA da sua empresa.</p>
-          <a href="#contato" class="btn btn--primary open-modal" style="margin-top:20px">Falar com a gente</a>
+          <a href="#contato" class="btn btn--run open-modal" style="margin-top:20px">Falar com a gente</a>
         </div>
       </div>
 
@@ -264,7 +264,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h2 class="run-cta__title">Seu projeto de IA<br /><span class="text-accent">sai do papel agora.</span></h2>
     <p class="run-cta__desc">Fale com nosso time e vamos transformar sua ideia em produto em até 2 semanas.</p>
     <div class="run-cta__actions">
-      <a href="#contato" class="btn btn--primary open-modal">Iniciar projeto</a>
+      <a href="#contato" class="btn btn--run open-modal">Iniciar projeto</a>
       <a href="/run" class="btn btn--ghost-dark">Ver outros serviços</a>
     </div>
   </div>

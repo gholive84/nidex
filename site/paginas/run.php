@@ -170,7 +170,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h2 class="run-cta__title">Escolha sua abordagem.<br /><span class="text-accent">Execute com quem entende.</span></h2>
     <p class="run-cta__desc">Entre em contato e nosso time define a melhor estratégia para o seu momento.</p>
     <div class="run-cta__actions">
-      <a href="#contato" class="btn btn--primary open-modal">Falar com especialista</a>
+      <a href="#contato" class="btn btn--run open-modal">Falar com especialista</a>
       <a href="/cowork" class="btn btn--ghost-dark">Conhecer o Nidex.Cowork</a>
     </div>
   </div>

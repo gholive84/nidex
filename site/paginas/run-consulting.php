@@ -18,7 +18,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h1 class="svc-hero__title">Estratégia de IA.<br /><span class="text-accent">Com resultado garantido.</span></h1>
     <p class="svc-hero__desc">Diagnóstico profundo, roadmap estratégico com ROI estimado e execução supervisionada. Para empresas que querem resultado real — não relatórios bonitos.</p>
     <div class="svc-hero__ctas">
-      <a href="#contato" class="btn btn--primary open-modal">Solicitar proposta</a>
+      <a href="#contato" class="btn btn--run open-modal">Solicitar proposta</a>
       <a href="#contato" class="btn btn--ghost-dark">Falar com especialista</a>
     </div>
   </div>
@@ -163,7 +163,7 @@ require_once dirname(dirname(__DIR__)) . '/site/includes/header.php';
     <h2 class="run-cta__title">Sua estratégia de IA<br /><span class="text-accent">começa com uma conversa.</span></h2>
     <p class="run-cta__desc">Fale com nosso time e receba uma proposta personalizada para o seu momento.</p>
     <div class="run-cta__actions">
-      <a href="#contato" class="btn btn--primary open-modal">Solicitar proposta</a>
+      <a href="#contato" class="btn btn--run open-modal">Solicitar proposta</a>
       <a href="/run" class="btn btn--ghost-dark">Ver outros serviços</a>
     </div>
   </div>
