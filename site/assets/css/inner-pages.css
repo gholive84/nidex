@@ -117,18 +117,29 @@
   background-clip: text;
 }
 .run-summary .section-label { color: #059669; }
-.run-summary .text-accent   { color: #10B981; }
 .run-sum-card__link { color: #059669; }
 .run-cta__glow { background: rgba(5,150,105,0.15); }
-.run-cta .text-accent { color: #34D399; }
 .run-cta .section-label--accent { color: #10B981; }
 
-/* svc pages (todas Run) — green theme */
-.svc-hero .text-accent           { color: #34D399; }
+/* text-accent verde — cancela o gradiente global em todos os contextos Run */
+.run-summary .text-accent,
+.run-cta .text-accent,
+.svc-hero .text-accent,
+.svc-solution .text-accent,
+.svc-process .text-accent,
+.svc-deliverables .text-accent {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: #34D399;
+  color: #34D399;
+}
+
+/* svc pages — section-labels verdes */
 .svc-problem .section-label--accent { color: #10B981; }
-.svc-solution .section-label     { color: #059669; }
-.svc-process  .section-label     { color: #059669; }
-.svc-deliverables .section-label { color: #059669; }
+.svc-solution .section-label        { color: #059669; }
+.svc-process  .section-label        { color: #059669; }
+.svc-deliverables .section-label    { color: #059669; }
 
 /* ===========================
    NIDEX.RUN — STICKY NAV
